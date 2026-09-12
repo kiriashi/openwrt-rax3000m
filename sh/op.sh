@@ -116,16 +116,8 @@ git clone https://github.com/sbwml/packages_lang_golang -b 26.x feeds/packages/l
 rm -rf package/xd/luci-app-netspeedtest
 git clone https://github.com/sirpdboy/netspeedtest package/netspeedtest
 
-# Passwall 核心库
-rm -rf feeds/packages/net/{xray-core,v2ray-geodata,sing-box,chinadns-ng,dns2socks,hysteria,ipt2socks,microsocks,naiveproxy,shadowsocks-libev,shadowsocks-rust,shadowsocksr-libev,simple-obfs,tcping,trojan-plus,tuic-client,v2ray-plugin,xray-plugin,geoview,shadow-tls}
-git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/porxy/passwall-packages
-
-# Passwall 软件包
-rm -rf feeds/luci/applications/luci-app-passwall
-rm -rf package/porxy/luci-app-passwall
-rm -rf package/porxy/luci-app-passwall2
-git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/porxy/passwall
-git clone https://github.com/Openwrt-Passwall/openwrt-passwall2 package/porxy/passwall2
+# homeproxy
+git clone https://github.com/XiaoHaiSly/luci-app-homeproxy package/homeproxy
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
