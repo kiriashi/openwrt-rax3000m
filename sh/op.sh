@@ -112,11 +112,34 @@ sed -i '/<br \/>/d' feeds/luci/modules/luci-compat/luasrc/view/cbi/full_valuefoo
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 26.x feeds/packages/lang/golang
 
+# netspeedtest
+rm -rf package/xd/luci-app-netspeedtest
+git clone https://github.com/sirpdboy/netspeedtest package/netspeedtest
+
+# Passwall 核心库
+rm -rf feeds/packages/net/{xray-core,v2ray-geodata,sing-box,chinadns-ng,dns2socks,hysteria,ipt2socks,microsocks,naiveproxy,shadowsocks-libev,shadowsocks-rust,shadowsocksr-libev,simple-obfs,tcping,trojan-plus,tuic-client,v2ray-plugin,xray-plugin,geoview,shadow-tls}
+git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/porxy/passwall-packages
+
+# Passwall 软件包
+rm -rf feeds/luci/applications/luci-app-passwall
+rm -rf package/porxy/luci-app-passwall
+rm -rf package/porxy/luci-app-passwall2
+git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/porxy/passwall
+git clone https://github.com/Openwrt-Passwall/openwrt-passwall2 package/porxy/passwall2
+
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
-sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
+# Apps menu rename
+sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
+sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/usr/share/luci/menu.d/luci-app-eqos.json
 
+sed -i -e 's|"admin/services|"admin/nas|g' -e '2i\
+    "admin/nas": {"title": "NAS","order": 70,"action": {"type": "firstchild"}},' \
+package/xd/luci-app-ksmbd/root/usr/share/luci/menu.d/luci-app-ksmbd.json
+
+
+sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
 
 sudo rm -rf package/base-files/files/etc/banner
 
@@ -127,12 +150,6 @@ sed -i "s/%R/by $OP_author/" package/base-files/files/etc/openwrt_release
 date=$(date +"%Y-%m-%d")
 
 
-echo "                                                    " >> package/base-files/files/etc/banner
-echo "  _______                     ________        __" >> package/base-files/files/etc/banner
-echo " |       |.-----.-----.-----.|  |  |  |.----.|  |_" >> package/base-files/files/etc/banner
-echo " |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|" >> package/base-files/files/etc/banner
-echo " |_______||   __|_____|__|__||________||__|  |____|" >> package/base-files/files/etc/banner
-echo "          |__|" >> package/base-files/files/etc/banner
-echo " -----------------------------------------------------" >> package/base-files/files/etc/banner
-echo "         %D ${date} by $OP_author                     " >> package/base-files/files/etc/banner
-echo " -----------------------------------------------------" >> package/base-files/files/etc/banner
+echo " " >> package/base-files/files/etc/banner
+echo "    %D ${date} by $OP_author    " >> package/base-files/files/etc/banner
+echo " " >> package/base-files/files/etc/banner

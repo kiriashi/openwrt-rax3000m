@@ -234,8 +234,13 @@ CONFIG_KERNEL_ZRAM_BACKEND_LZ4HC=y
 CONFIG_KERNEL_ZRAM_DEF_COMP="lz4"
 
 ## luci apps
+CONFIG_PACKAGE_luci-theme-m3e=y
+CONFIG_PACKAGE_luci-app-ttyd=y
+CONFIG_PACKAGE_luci-app-upnp=y
+CONFIG_PACKAGE_luci-app-diskman=y
+CONFIG_PACKAGE_luci-app-ramfree=y
+CONFIG_PACKAGE_luci-app-netspeedtest=y
 CONFIG_PACKAGE_luci-app-eqos-mtk=y
 CONFIG_PACKAGE_luci-app-mtwifi-cfg=y
 CONFIG_PACKAGE_luci-app-turboacc-mtk=y
 CONFIG_PACKAGE_my-default-settings=y
-
