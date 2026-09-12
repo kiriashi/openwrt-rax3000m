@@ -20,7 +20,7 @@ on:
       CUSTOM_PLUGINS:
         description: '自定义插件名称，用空格分隔'
         required: false
-        default: 'luci-app-ddns-go luci-app-dockerman luci-app-filebrowser-go luci-app-homeproxy luci-app-ksmbd luci-app-tailscale luci-app-vlmcsd'
+        default: 'luci-app-ddns-go luci-app-dockerman luci-app-filebrowser-go luci-app-homeproxy luci-app-ksmbd luci-app-vlmcsd'
         type: string
 
 env:
