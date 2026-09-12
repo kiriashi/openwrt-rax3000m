@@ -117,7 +117,7 @@ rm -rf package/xd/luci-app-netspeedtest
 git clone https://github.com/sirpdboy/netspeedtest package/netspeedtest
 
 # homeproxy
-rm -rf package/xd/luci-app-homeproxy
+rm -rf package/porxy/luci-app-homeproxy
 git clone https://github.com/XiaoHaiSly/luci-app-homeproxy package/homeproxy
 
 ./scripts/feeds update -a
