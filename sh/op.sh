@@ -121,6 +121,9 @@ rm -rf package/xd/sing-box
 rm -rf package/porxy/luci-app-homeproxy
 git clone https://github.com/XiaoHaiSly/luci-app-homeproxy package/homeproxy
 
+# cloudreve
+git clone https://github.com/kiddin9/luci-app-cloudreve package/cloudreve
+
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
