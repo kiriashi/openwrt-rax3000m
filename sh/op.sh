@@ -112,17 +112,14 @@ sed -i '/<br \/>/d' feeds/luci/modules/luci-compat/luasrc/view/cbi/full_valuefoo
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 26.x feeds/packages/lang/golang
 
-# netspeedtest
-rm -rf package/xd/luci-app-netspeedtest
-git clone https://github.com/sirpdboy/netspeedtest package/netspeedtest
-
 # homeproxy
 rm -rf package/xd/sing-box
 rm -rf package/porxy/luci-app-homeproxy
 git clone https://github.com/XiaoHaiSly/luci-app-homeproxy package/homeproxy
 
-# cloudreve
-git clone https://github.com/kiddin9/luci-app-cloudreve package/cloudreve
+# netspeedtest
+rm -rf package/xd/luci-app-netspeedtest
+git clone https://github.com/sirpdboy/netspeedtest package/netspeedtest
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
