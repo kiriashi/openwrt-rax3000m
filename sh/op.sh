@@ -118,7 +118,7 @@ rm -rf package/porxy/luci-app-homeproxy
 git clone https://github.com/XiaoHaiSly/luci-app-homeproxy package/homeproxy
 
 # tailscale
-
+rm -rf package/xd/luci-app-tailscale
 git clone https://github.com/whzhni1/luci-app-tailscale package/tailscale
 
 # netspeedtest
