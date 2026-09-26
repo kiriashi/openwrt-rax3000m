@@ -112,11 +112,6 @@ sed -i '/<br \/>/d' feeds/luci/modules/luci-compat/luasrc/view/cbi/full_valuefoo
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 26.x feeds/packages/lang/golang
 
-# homeproxy
-rm -rf package/xd/sing-box
-rm -rf package/porxy/luci-app-homeproxy
-git clone https://github.com/XiaoHaiSly/luci-app-homeproxy package/homeproxy
-
 # tailscale
 rm -rf package/xd/luci-app-tailscale
 git clone https://github.com/whzhni1/luci-app-tailscale package/tailscale
