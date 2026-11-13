@@ -1,0 +1,16 @@
+
+config globals 'globals'
+	option data_root '/mnt/mmcblk0p6/opt/docker'
+	option log_level 'warn'
+	option iptables '1'
+	list hosts 'unix:///var/run/docker.sock'
+	option api_version 'v1.47'
+	list registry_mirrors 'https://docker.gh-proxy.com'
+	option _luci_lan 'lan'
+
+config proxies 'proxies'
+
+config firewall 'firewall'
+	option device 'docker0'
+	list blocked_interfaces 'wan'
+
