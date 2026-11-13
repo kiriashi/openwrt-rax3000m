@@ -106,6 +106,9 @@ sed -i '/<br \/>/d' feeds/luci/modules/luci-compat/luasrc/view/cbi/full_valuefoo
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 27.x feeds/packages/lang/golang
 
+#openclash
+git clone https://github.com/vernesong/OpenClash package/openclash
+
 # openlist2
 git clone https://github.com/sbwml/luci-app-openlist2 package/openlist2
 
