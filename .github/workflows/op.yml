@@ -180,7 +180,10 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ env.release_tag }}-${{env.tag}}
-        files: ${{ env.FIRMWARE }}/*
+        files: |
+          ${{ env.FIRMWARE }}/*
+          fail_on_unmatched_files: true
+          overwrite_files: true
         body: |
           ====================固件信息=======================
           分支：${{ env.release_tag }}
