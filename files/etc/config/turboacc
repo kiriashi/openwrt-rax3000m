@@ -1,0 +1,10 @@
+
+config turboacc 'global'
+	option set '1'
+
+config turboacc 'config'
+	option tcpcca 'bbr'
+	option fullcone '1'
+	option fastpath 'mediatek_hnat'
+	option fastpath_mh_bind_rate '30'
+	option fastpath_mh_update_nfct '1'
